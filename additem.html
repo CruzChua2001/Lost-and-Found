@@ -19,12 +19,6 @@
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
-
-      <style>
-         * {
-            box-sizing: border-box;
-         }
-      </style>
    </head>
 
    <body>
@@ -55,36 +49,62 @@
             </nav>
          </div>
       <!--header section end -->
-      <!-- item section start -->
-      <div class="item_srction layout_padding">
+      <!-- Report item section start -->
+      <div class="contact_srction layout_padding">
          <div class="container">
-            <h1 class="item_taital">Lost & Found Items</h1>
-            <div class="item_srction_2">
-
-               <div class="form-outline mb-3">
-                  <input type="search" id="searchQuery" class="form-control" placeholder="Search for items" aria-label="Search" />
-                </div>
-
-               <div class="flex"> 
-                  <div class="column1 column">
+            <h1 class="contact_taital">Report Item Found</h1>
+            <div class="contact_srction_2">
+               <div class="mail_main">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <input type="file" class="mail_text" name="Full Name" id="lostItemFile" accept="image/png, image/jpeg, image/jpg, image/gif">
+                     </div>
+                     <div class="col-md-6">
+                        <input type="text" class="mail_text" placeholder="Item" name="Full Name" id="itemName">
+                     </div>
                   </div>
-              
-                  <div class="column2 column">
-                  </div> 
-              
-                  <div class="column3 column">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <input type="text" class="mail_text" placeholder="Location Found" name="location" id="location">
+                     </div>
+                     <div class="col-md-6">
+                        <input type="datetime-local" class="mail_text" name="datetime" id="datetime">
+                     </div>
                   </div>
-              
-                  <div class="column4 column">
+                  <h3 class="mt-3">Item Details:</h3>
+
+                  <div id="itemDetails">
+
                   </div>
 
-                  <template id="itemCardTemplate">
-                     <div class="item_card">
-                        <img src="" style="width:100%" alt="lost item image" class="item_card_image">
-                       <table class="item_card_table"></table>
+                  <template id="itemDetailsTemplate">
+                     <div class="row">
+                        <div class="col-md-4">
+                           <input type="text" class="detailtype mail_text" placeholder="Detail Type (e.g. color, brand)" name="DetailType">
+                        </div>
+                        <div class="col-md-6">
+                           <input type="text" class="details mail_text" placeholder="Detail" name="DetailType">
+                        </div>
+                        <div class="col-md-2">
+                           <button class="closeDetail btn btn-danger">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mt-1 bi bi-x-circle" viewBox="0 0 16 16">
+                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                               </svg>
+                           </button>
+                        </div>
                      </div>
                   </template>
-              </div>
+
+                  <button id="detail_bt" class="btn btn-primary mt-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16" style="margin-top: 4px">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>
+                     Add Detail
+                  </button>
+                  <div class="send_bt" id="send_bt"><a href="#">Report</a></div>
+               </div>
             </div>
          </div>
       </div>
@@ -123,6 +143,6 @@
       <script src="js/jquery-3.0.0.min.js"></script>
       <!-- javascript --> 
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-      <script src="js/lostitemscript.js"></script>
+      <script src="js/additemscript.js"></script>
    </body>
 </html>
