@@ -869,3 +869,15 @@ input.Enter_text::placeholder {
 .closeDetail {
     margin-top: 25%;
 }
+
+#subscribe_bt {
+    cursor: pointer;
+}
+
+.suggestion {
+    cursor: pointer
+}
+
+.suggestion:hover {
+    text-decoration: underline;
+}

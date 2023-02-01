@@ -61,6 +61,7 @@
                      </div>
                      <div class="col-md-6">
                         <input type="text" class="mail_text" placeholder="Item" name="Full Name" id="itemName">
+                        <div id="suggestion_name"></div>
                      </div>
                   </div>
                   <div class="row">
@@ -123,8 +124,8 @@
                <div class="location_text right"><img src="images/mail-icon.png"><span class="padding10"><a href="#">NYP_STUHELPIT_from.PCCW@nyp.edu.sg</a></span></div>
             </div>
             <div class="Enter_mail_main">
-               <input type="text" class="Enter_text" placeholder="Enter Your Name" name="Enter Your Name">
-               <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+               <input type="email" class="Enter_text" placeholder="Enter Your Email" name="Enter Your Email" id="email_subscribe">
+               <div class="subscribe_bt" id="subscribe_bt"><a>Subscribe</a></div>
             </div>
          </div>
       </div>
@@ -144,5 +145,7 @@
       <!-- javascript --> 
       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
       <script src="js/additemscript.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="js/emailsubscribe.js"></script>
    </body>
 </html>

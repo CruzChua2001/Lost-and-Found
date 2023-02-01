@@ -39,7 +39,38 @@ const refreshPage = _ => {
     document.getElementById("itemDetails").innerHTML = ""
 }
 
-//On Click Listener ----Start
+const updateNameField = data => {
+    const divSuggestion = document.getElementById("suggestion_name")
+    let suggSpan = document.createElement("span")
+    suggSpan.innerHTML = "Suggestions:"
+    let br = document.createElement("br")
+
+    divSuggestion.appendChild(suggSpan)
+    divSuggestion.appendChild(br)
+
+    axios.post("https://ux0eruuwu7.execute-api.us-east-1.amazonaws.com/prod/lostandfound/details", data)
+    .then(res => {
+        data = res["data"]["Labels"]
+        const max = 6;
+        for(i=0; i<max && i<data.length; i++){
+            const name = data[i]["Name"]
+            
+            let span = document.createElement("span")
+            span.innerHTML = name
+            span.setAttribute("class", "suggestion mr-2")
+            span.setAttribute("onClick", `setName('${name}')`)
+
+            divSuggestion.appendChild(span)
+        }
+    })
+}
+
+const setName = (name) => {
+    document.getElementById("itemName").value = name
+    document.getElementById("suggestion_name").innerHTML = ""
+}
+
+//Event Listener ----Start
 document.getElementById("detail_bt").addEventListener("click", () => {
     const template = document.querySelector('#itemDetailsTemplate')
     const detailbody = document.getElementById("itemDetails")
@@ -101,7 +132,20 @@ document.getElementById("send_bt").addEventListener("click", () => {
     
 })
 
-//On Click Listener ----End
+document.getElementById("lostItemFile").addEventListener("change", (event) => {
+    // Get the selected file
+    const file = event.target.files[0];
+
+    var reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => {
+        const data = { File: reader.result }
+        updateNameField(data)
+    }
+})
+
+//Event Listener ----End
+
 
 
 
